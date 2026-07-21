@@ -1,0 +1,42 @@
+name: Release
+
+# Tag a release: bump "Version" in the manifest, commit, then
+#   git tag v0.1.0 && git push origin v0.1.0
+# This builds, packages the .streamDeckPlugin, and attaches it to a GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Package .streamDeckPlugin
+        run: npm run package
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            com.linus.claude-code-control.streamDeckPlugin \
+            --title "${{ github.ref_name }}" \
+            --generate-notes

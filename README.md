@@ -1,8 +1,12 @@
 # Claude Code Control — Stream Deck plugin
 
+[![CI](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml/badge.svg)](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml)
+
 Steer a **live, interactive Claude Code session** from your Elgato Stream Deck:
 switch the model, set reasoning effort, toggle fast mode, and fire off skills —
 without touching the keyboard.
+
+![Claude Code Control running on a Stream Deck Neo — Sonnet and X-High keys lit as the active model and effort](docs/streamdeck-neo.jpg)
 
 ## How it works
 
@@ -74,12 +78,28 @@ npm run watch
 Then in the Stream Deck app, open the **Keys** tab, find the **Claude Code
 Control** category, and drag actions onto keys.
 
-Package a distributable:
+Package a distributable locally:
 
 ```bash
-streamdeck validate com.linus.claude-code-control.sdPlugin
-streamdeck pack com.linus.claude-code-control.sdPlugin
+npm run validate
+npm run package   # -> com.linus.claude-code-control.streamDeckPlugin
 ```
+
+## Releasing
+
+Every push/PR to `main` runs type-check, build, and plugin validation via
+GitHub Actions (`.github/workflows/ci.yml`).
+
+To cut a release, bump `Version` in `manifest.json`, then push a `v*` tag:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+`.github/workflows/release.yml` builds, packages the `.streamDeckPlugin`, and
+attaches it to an auto-generated GitHub Release. Double-click the downloaded
+`.streamDeckPlugin` to install it in the Stream Deck app.
 
 ## Configuration (shared, in every Property Inspector → “Behaviour”)
 

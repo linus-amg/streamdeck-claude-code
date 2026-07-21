@@ -6,12 +6,16 @@
 	"private": true,
 	"scripts": {
 		"build": "rollup -c",
-		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.linus.claude-code-control\""
+		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.linus.claude-code-control\"",
+		"typecheck": "tsc --noEmit",
+		"validate": "streamdeck validate com.linus.claude-code-control.sdPlugin",
+		"package": "streamdeck pack com.linus.claude-code-control.sdPlugin --force --no-update-check"
 	},
 	"dependencies": {
 		"@elgato/streamdeck": "^2.1.0"
 	},
 	"devDependencies": {
+		"@elgato/cli": "^1.7.4",
 		"@rollup/plugin-commonjs": "^28.0.0",
 		"@rollup/plugin-node-resolve": "^16.0.0",
 		"@rollup/plugin-typescript": "^12.1.0",

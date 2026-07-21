@@ -30,10 +30,20 @@
 			"Icon": "imgs/actions/model",
 			"Tooltip": "Send /model <name> to the Claude Code session. Highlights when it is the active model.",
 			"PropertyInspectorPath": "ui/model.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"States": [
-				{ "Image": "imgs/state/inactive", "TitleAlignment": "middle", "FontSize": 14 },
-				{ "Image": "imgs/state/active", "TitleAlignment": "middle", "FontSize": 14 }
+				{
+					"Image": "imgs/state/inactive",
+					"TitleAlignment": "middle",
+					"FontSize": 14
+				},
+				{
+					"Image": "imgs/state/active",
+					"TitleAlignment": "middle",
+					"FontSize": 14
+				}
 			]
 		},
 		{
@@ -42,10 +52,20 @@
 			"Icon": "imgs/actions/effort",
 			"Tooltip": "Send /effort <level> to the Claude Code session. Highlights when it is the active level.",
 			"PropertyInspectorPath": "ui/effort.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"States": [
-				{ "Image": "imgs/state/inactive", "TitleAlignment": "middle", "FontSize": 14 },
-				{ "Image": "imgs/state/active", "TitleAlignment": "middle", "FontSize": 14 }
+				{
+					"Image": "imgs/state/inactive",
+					"TitleAlignment": "middle",
+					"FontSize": 14
+				},
+				{
+					"Image": "imgs/state/active",
+					"TitleAlignment": "middle",
+					"FontSize": 14
+				}
 			]
 		},
 		{
@@ -54,11 +74,23 @@
 			"Icon": "imgs/actions/fast",
 			"Tooltip": "Toggle /fast on/off in the Claude Code session (Opus 4.8/4.7).",
 			"PropertyInspectorPath": "ui/shared.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"DisableAutomaticStates": true,
 			"States": [
-				{ "Image": "imgs/state/fast-off", "Title": "Fast", "TitleAlignment": "bottom", "FontSize": 12 },
-				{ "Image": "imgs/state/fast-on", "Title": "Fast", "TitleAlignment": "bottom", "FontSize": 12 }
+				{
+					"Image": "imgs/state/fast-off",
+					"Title": "Fast",
+					"TitleAlignment": "bottom",
+					"FontSize": 12
+				},
+				{
+					"Image": "imgs/state/fast-on",
+					"Title": "Fast",
+					"TitleAlignment": "bottom",
+					"FontSize": 12
+				}
 			]
 		},
 		{
@@ -67,9 +99,15 @@
 			"Icon": "imgs/actions/skill",
 			"Tooltip": "Send a slash command (e.g. /prepare, /lintfix) to the Claude Code session.",
 			"PropertyInspectorPath": "ui/skill.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"States": [
-				{ "Image": "imgs/state/skill", "TitleAlignment": "middle", "FontSize": 13 }
+				{
+					"Image": "imgs/state/skill",
+					"TitleAlignment": "middle",
+					"FontSize": 13
+				}
 			]
 		},
 		{
@@ -78,9 +116,15 @@
 			"Icon": "imgs/actions/send",
 			"Tooltip": "Send arbitrary text or a key (e.g. Escape, C-c) to the Claude Code session.",
 			"PropertyInspectorPath": "ui/send.html",
-			"Controllers": ["Keypad"],
+			"Controllers": [
+				"Keypad"
+			],
 			"States": [
-				{ "Image": "imgs/state/send", "TitleAlignment": "middle", "FontSize": 13 }
+				{
+					"Image": "imgs/state/send",
+					"TitleAlignment": "middle",
+					"FontSize": 13
+				}
 			]
 		}
 	]
