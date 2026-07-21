@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Command">
+			<sdpi-textfield setting="command" placeholder="/prepare"></sdpi-textfield>
+		</sdpi-item>
+		<sdpi-item label="Label (optional)">
+			<sdpi-textfield setting="label" placeholder="derived from command"></sdpi-textfield>
+		</sdpi-item>
+		<sdpi-item label="Press Enter">
+			<sdpi-checkbox setting="submit" checked></sdpi-checkbox>
+		</sdpi-item>
+
+		<details>
+			<summary>Behaviour (shared)</summary>
+			<sdpi-item label="Activate app">
+				<sdpi-textfield setting="activateApp" global placeholder="blank = focused window (e.g. Zed)"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Submit delay (ms)">
+				<sdpi-textfield type="number" setting="submitDelayMs" global placeholder="300"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Clear line first">
+				<sdpi-checkbox setting="clearFirst" global></sdpi-checkbox>
+			</sdpi-item>
+		</details>
+	</body>
+</html>

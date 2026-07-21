@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Effort">
+			<sdpi-select setting="effort" placeholder="Choose a level">
+				<option value="low">Low</option>
+				<option value="medium">Medium</option>
+				<option value="high">High</option>
+				<option value="xhigh">X-High</option>
+				<option value="max">Max</option>
+				<option value="ultracode">Ultracode</option>
+			</sdpi-select>
+		</sdpi-item>
+
+		<sdpi-item label="Sends"><sdpi-textfield disabled value="/effort <level>"></sdpi-textfield></sdpi-item>
+
+		<details>
+			<summary>Behaviour (shared)</summary>
+			<sdpi-item label="Activate app">
+				<sdpi-textfield setting="activateApp" global placeholder="blank = focused window (e.g. Zed)"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Submit delay (ms)">
+				<sdpi-textfield type="number" setting="submitDelayMs" global placeholder="300"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Clear line first">
+				<sdpi-checkbox setting="clearFirst" global></sdpi-checkbox>
+			</sdpi-item>
+		</details>
+	</body>
+</html>

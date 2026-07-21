@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.linus.claude-code-control",
+	"Name": "Claude Code Control",
+	"Version": "0.1.0.0",
+	"Author": "Linus Gubenis",
+	"Description": "Steer a live Claude Code session from your Stream Deck: switch model, set reasoning effort, toggle fast mode, and fire off skills. Commands are injected into a tmux-hosted Claude Code TUI.",
+	"Category": "Claude Code Control",
+	"CategoryIcon": "imgs/plugin/category",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"CodePath": "bin/plugin.js",
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		}
+	],
+	"Actions": [
+		{
+			"Name": "Set Model",
+			"UUID": "com.linus.claude-code-control.model",
+			"Icon": "imgs/actions/model",
+			"Tooltip": "Send /model <name> to the Claude Code session. Highlights when it is the active model.",
+			"PropertyInspectorPath": "ui/model.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/state/inactive", "TitleAlignment": "middle", "FontSize": 14 },
+				{ "Image": "imgs/state/active", "TitleAlignment": "middle", "FontSize": 14 }
+			]
+		},
+		{
+			"Name": "Set Effort",
+			"UUID": "com.linus.claude-code-control.effort",
+			"Icon": "imgs/actions/effort",
+			"Tooltip": "Send /effort <level> to the Claude Code session. Highlights when it is the active level.",
+			"PropertyInspectorPath": "ui/effort.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/state/inactive", "TitleAlignment": "middle", "FontSize": 14 },
+				{ "Image": "imgs/state/active", "TitleAlignment": "middle", "FontSize": 14 }
+			]
+		},
+		{
+			"Name": "Fast Mode",
+			"UUID": "com.linus.claude-code-control.fast",
+			"Icon": "imgs/actions/fast",
+			"Tooltip": "Toggle /fast on/off in the Claude Code session (Opus 4.8/4.7).",
+			"PropertyInspectorPath": "ui/shared.html",
+			"Controllers": ["Keypad"],
+			"DisableAutomaticStates": true,
+			"States": [
+				{ "Image": "imgs/state/fast-off", "Title": "Fast", "TitleAlignment": "bottom", "FontSize": 12 },
+				{ "Image": "imgs/state/fast-on", "Title": "Fast", "TitleAlignment": "bottom", "FontSize": 12 }
+			]
+		},
+		{
+			"Name": "Run Skill",
+			"UUID": "com.linus.claude-code-control.skill",
+			"Icon": "imgs/actions/skill",
+			"Tooltip": "Send a slash command (e.g. /prepare, /lintfix) to the Claude Code session.",
+			"PropertyInspectorPath": "ui/skill.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/state/skill", "TitleAlignment": "middle", "FontSize": 13 }
+			]
+		},
+		{
+			"Name": "Send Text / Key",
+			"UUID": "com.linus.claude-code-control.send",
+			"Icon": "imgs/actions/send",
+			"Tooltip": "Send arbitrary text or a key (e.g. Escape, C-c) to the Claude Code session.",
+			"PropertyInspectorPath": "ui/send.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/state/send", "TitleAlignment": "middle", "FontSize": 13 }
+			]
+		}
+	]
+}

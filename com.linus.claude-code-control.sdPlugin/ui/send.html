@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Mode">
+			<sdpi-select setting="mode" default="text">
+				<option value="text">Text (typed + Enter)</option>
+				<option value="key">Key (Escape, C-c, Up…)</option>
+			</sdpi-select>
+		</sdpi-item>
+		<sdpi-item label="Value">
+			<sdpi-textfield setting="value" placeholder="/compact  or  Escape  or  C-c"></sdpi-textfield>
+		</sdpi-item>
+		<sdpi-item label="Label (optional)">
+			<sdpi-textfield setting="label" placeholder="derived from value"></sdpi-textfield>
+		</sdpi-item>
+		<sdpi-item label="Press Enter (text mode)">
+			<sdpi-checkbox setting="submit" checked></sdpi-checkbox>
+		</sdpi-item>
+
+		<details>
+			<summary>Behaviour (shared)</summary>
+			<sdpi-item label="Activate app">
+				<sdpi-textfield setting="activateApp" global placeholder="blank = focused window (e.g. Zed)"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Submit delay (ms)">
+				<sdpi-textfield type="number" setting="submitDelayMs" global placeholder="300"></sdpi-textfield>
+			</sdpi-item>
+			<sdpi-item label="Clear line first">
+				<sdpi-checkbox setting="clearFirst" global></sdpi-checkbox>
+			</sdpi-item>
+		</details>
+	</body>
+</html>

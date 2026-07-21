@@ -1,0 +1,5 @@
+node_modules/
+com.linus.claude-code-control.sdPlugin/bin/
+com.linus.claude-code-control.sdPlugin/logs/
+*.streamDeckPlugin
+.DS_Store
