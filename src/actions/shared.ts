@@ -1,7 +1,25 @@
-import streamDeck, { type KeyAction } from "@elgato/streamdeck";
+import streamDeck, { type DialAction, type KeyAction } from "@elgato/streamdeck";
 
 import { sendRawKeys, sendToClaude, type SendOptions } from "../sender.js";
 import { getState, resolveConfig } from "../state.js";
+
+/**
+ * Repaint every visible key of an action (skipping any dial instances),
+ * concurrently. Used by the model/effort/fast actions to keep the active
+ * selection highlighted across all their keys after a change.
+ */
+export async function repaintKeys(
+	actions: Iterable<DialAction | KeyAction>,
+	render: (key: KeyAction) => Promise<void>,
+): Promise<void> {
+	const tasks: Promise<void>[] = [];
+	for (const action of actions) {
+		if (action.isKey()) {
+			tasks.push(render(action));
+		}
+	}
+	await Promise.all(tasks);
+}
 
 /** Type literal text into Claude Code, flashing the key OK (green) or alert (yellow). */
 export async function sendAndReport(action: KeyAction, text: string, extra: Partial<SendOptions> = {}): Promise<boolean> {

@@ -1,7 +1,7 @@
 import { action, type KeyAction, type KeyDownEvent, SingletonAction, type WillAppearEvent } from "@elgato/streamdeck";
 
 import { getState, patchState } from "../state.js";
-import { sendAndReport } from "./shared.js";
+import { repaintKeys, sendAndReport } from "./shared.js";
 
 export const FAST_UUID = "com.linus.claude-code-control.fast";
 
@@ -28,10 +28,6 @@ export class FastAction extends SingletonAction {
 
 	/** Re-paint every visible Fast key so they all reflect on/off together. */
 	private async refreshAll(fast: boolean): Promise<void> {
-		for (const key of this.actions) {
-			if (key.isKey()) {
-				await renderFastKey(key, fast);
-			}
-		}
+		await repaintKeys(this.actions, (key) => renderFastKey(key, fast));
 	}
 }

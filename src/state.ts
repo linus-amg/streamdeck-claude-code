@@ -26,8 +26,6 @@ export type ActiveState = {
 
 export type GlobalState = PluginConfig & ActiveState;
 
-const DEFAULT_SUBMIT_DELAY_MS = 300;
-
 export async function getState(): Promise<GlobalState> {
 	return (await streamDeck.settings.getGlobalSettings<GlobalState>()) ?? {};
 }
@@ -41,7 +39,8 @@ export async function patchState(patch: Partial<GlobalState>): Promise<GlobalSta
 
 export type ResolvedConfig = {
 	activateApp?: string;
-	submitDelayMs: number;
+	// Left undefined when unset; the sender applies the single default.
+	submitDelayMs?: number;
 	clearFirst: boolean;
 };
 
@@ -49,7 +48,7 @@ export function resolveConfig(state: GlobalState): ResolvedConfig {
 	return {
 		// Unset/blank -> no activation: type into whatever window is focused.
 		activateApp: state.activateApp?.trim() || undefined,
-		submitDelayMs: state.submitDelayMs ?? DEFAULT_SUBMIT_DELAY_MS,
+		submitDelayMs: state.submitDelayMs,
 		clearFirst: state.clearFirst ?? false,
 	};
 }

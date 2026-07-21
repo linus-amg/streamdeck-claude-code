@@ -1,7 +1,7 @@
 import { action, type DidReceiveSettingsEvent, type KeyAction, type KeyDownEvent, SingletonAction, type WillAppearEvent } from "@elgato/streamdeck";
 
 import { type Effort, getState, patchState } from "../state.js";
-import { sendAndReport } from "./shared.js";
+import { repaintKeys, sendAndReport } from "./shared.js";
 
 export const EFFORT_UUID = "com.linus.claude-code-control.effort";
 
@@ -50,10 +50,8 @@ export class EffortAction extends SingletonAction<Settings> {
 
 	/** Re-paint every visible Set Effort key so the active one stays highlighted. */
 	private async refreshAll(activeEffort: Effort | undefined): Promise<void> {
-		for (const key of this.actions) {
-			if (key.isKey()) {
-				await renderEffortKey(key, (await key.getSettings<Settings>()).effort, activeEffort);
-			}
-		}
+		await repaintKeys(this.actions, async (key) => {
+			await renderEffortKey(key, (await key.getSettings<Settings>()).effort, activeEffort);
+		});
 	}
 }

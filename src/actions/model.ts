@@ -1,7 +1,7 @@
 import { action, type DidReceiveSettingsEvent, type KeyAction, type KeyDownEvent, SingletonAction, type WillAppearEvent } from "@elgato/streamdeck";
 
 import { getState, type Model, patchState } from "../state.js";
-import { sendAndReport } from "./shared.js";
+import { repaintKeys, sendAndReport } from "./shared.js";
 
 export const MODEL_UUID = "com.linus.claude-code-control.model";
 
@@ -43,10 +43,8 @@ export class ModelAction extends SingletonAction<Settings> {
 
 	/** Re-paint every visible Set Model key so the active one stays highlighted. */
 	private async refreshAll(activeModel: Model | undefined): Promise<void> {
-		for (const key of this.actions) {
-			if (key.isKey()) {
-				await renderModelKey(key, (await key.getSettings<Settings>()).model, activeModel);
-			}
-		}
+		await repaintKeys(this.actions, async (key) => {
+			await renderModelKey(key, (await key.getSettings<Settings>()).model, activeModel);
+		});
 	}
 }
