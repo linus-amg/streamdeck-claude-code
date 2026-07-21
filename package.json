@@ -5,7 +5,7 @@
 	"type": "module",
 	"private": true,
 	"license": "MIT",
-	"packageManager": "bun@1.3.10",
+	"packageManager": "bun@1.3.14",
 	"scripts": {
 		"build": "bun build src/plugin.ts --target=node --format=esm --outdir=com.linus.claude-code-control.sdPlugin/bin --sourcemap=linked",
 		"watch": "bun run scripts/dev.ts",
