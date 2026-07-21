@@ -1,4 +1,4 @@
-# Claude Code Control — Stream Deck plugin
+# Controls for Claude Code — Stream Deck plugin
 
 [![CI](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml/badge.svg)](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/linus-amg/streamdeck-claude-code)](https://github.com/linus-amg/streamdeck-claude-code/releases/latest)
