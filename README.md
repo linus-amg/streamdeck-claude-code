@@ -1,6 +1,7 @@
 # Claude Code Control — Stream Deck plugin
 
 [![CI](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml/badge.svg)](https://github.com/linus-amg/streamdeck-claude-code/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/linus-amg/streamdeck-claude-code)](https://github.com/linus-amg/streamdeck-claude-code/releases/latest)
 
 Steer a **live, interactive Claude Code session** from your Elgato Stream Deck:
 switch the model, set reasoning effort, toggle fast mode, and fire off skills —
@@ -56,7 +57,14 @@ prompt; otherwise enable it manually:
 
 Without it, keys flash yellow ⚠ and nothing is typed.
 
-## Build & install
+## Install
+
+Download the latest **`.streamDeckPlugin`** from the
+[latest release](https://github.com/linus-amg/streamdeck-claude-code/releases/latest)
+and double-click it to install in the Stream Deck app. Then grant Accessibility
+permission (above) and add the actions to your keys.
+
+## Build from source
 
 ```bash
 npm install
