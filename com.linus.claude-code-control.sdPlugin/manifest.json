@@ -126,6 +126,31 @@
 					"FontSize": 13
 				}
 			]
+		},
+		{
+			"Name": "Voice",
+			"UUID": "com.linus.claude-code-control.voice",
+			"Icon": "imgs/actions/voice",
+			"Tooltip": "Trigger Claude Code's native /voice dictation. Push-to-talk, tap toggle, or enable. Requires /voice tap enabled.",
+			"PropertyInspectorPath": "ui/voice.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"DisableAutomaticStates": true,
+			"States": [
+				{
+					"Image": "imgs/state/voice-idle",
+					"Title": "Voice",
+					"TitleAlignment": "bottom",
+					"FontSize": 12
+				},
+				{
+					"Image": "imgs/state/voice-rec",
+					"Title": "REC",
+					"TitleAlignment": "bottom",
+					"FontSize": 12
+				}
+			]
 		}
 	]
 }

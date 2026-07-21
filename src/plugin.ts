@@ -5,6 +5,7 @@ import { FastAction } from "./actions/fast.js";
 import { ModelAction } from "./actions/model.js";
 import { SendAction } from "./actions/send.js";
 import { SkillAction } from "./actions/skill.js";
+import { VoiceAction } from "./actions/voice.js";
 
 streamDeck.logger.setLevel("debug");
 
@@ -13,6 +14,7 @@ streamDeck.actions.registerAction(new EffortAction());
 streamDeck.actions.registerAction(new FastAction());
 streamDeck.actions.registerAction(new SkillAction());
 streamDeck.actions.registerAction(new SendAction());
+streamDeck.actions.registerAction(new VoiceAction());
 
 await streamDeck.connect();
 

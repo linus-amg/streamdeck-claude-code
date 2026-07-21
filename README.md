@@ -38,6 +38,7 @@ report it back), so the model/effort keys light up to show what was last sent.
 | **Fast Mode** | `/fast on\|off` | 2-state toggle |
 | **Run Skill** | any `/command` (e.g. `/prepare`) | one key per skill |
 | **Send Text / Key** | literal text, or a key (`Escape`, `C-c`, `Up`) | escape hatch |
+| **Voice** | drives Claude Code's native `/voice` dictation | push-to-talk, tap toggle, or enable |
 
 ## Prerequisites
 
@@ -120,6 +121,27 @@ attaches it to an auto-generated GitHub Release. Double-click the downloaded
 Per-key settings: **Set Model** → model; **Set Effort** → level; **Run Skill** →
 the `/command` (+ optional label, and whether to press Enter); **Send Text/Key**
 → value + mode (`text` types it, `key` sends `Escape`/`C-c`/arrows/etc.).
+
+## Voice dictation
+
+The **Voice** action drives Claude Code's built-in [`/voice`](https://code.claude.com/docs/en/voice-dictation)
+dictation (streamed to Anthropic, coding-tuned, no token cost) — no third-party
+speech-to-text needed. Pick a gesture in the key's Property Inspector:
+
+- **Push-to-talk** — hold the key while you speak; release to send.
+- **Tap toggle** — press to start, press again to send.
+- **Enable voice mode** — sends `/voice tap` to turn dictation on.
+
+**Setup (once per session):** press an **Enable voice mode** key (or type
+`/voice tap`), and grant your terminal microphone access on first use
+(System Settings → Privacy & Security → Microphone). Voice needs a Claude.ai
+login (not an API key).
+
+> Why tap mode under the hood: Claude's native *hold* mode detects a real
+> key-**hold** via OS key-repeat, which a synthetic keypress can't produce — so
+> both gestures use `/voice tap` (a single injected Space tap to start and to
+> stop). If you rebound `voice:pushToTalk` off Space, set the same key in the
+> action's **Voice key** field.
 
 ## Suggested layout
 

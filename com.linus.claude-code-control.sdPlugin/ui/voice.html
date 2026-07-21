@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Gesture">
+			<sdpi-select setting="gesture" default="hold">
+				<option value="hold">Push-to-talk (hold key)</option>
+				<option value="tap">Tap toggle (press / press)</option>
+				<option value="enable">Enable voice mode (/voice tap)</option>
+			</sdpi-select>
+		</sdpi-item>
+		<sdpi-item label="Voice key">
+			<sdpi-textfield setting="voiceKey" placeholder="space"></sdpi-textfield>
+		</sdpi-item>
+
+		<sdpi-item label="Requires">
+			<sdpi-textfield disabled value="/voice tap enabled + mic permission"></sdpi-textfield>
+		</sdpi-item>
+
+		<details>
+			<summary>Behaviour (shared)</summary>
+			<sdpi-item label="Activate app">
+				<sdpi-textfield setting="activateApp" global placeholder="blank = focused window (e.g. Zed)"></sdpi-textfield>
+			</sdpi-item>
+		</details>
+	</body>
+</html>
