@@ -2,14 +2,14 @@
 	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
 	"UUID": "com.linus.claude-code-control",
 	"Name": "Controls for Claude Code",
-	"Version": "0.3.0.0",
+	"Version": "0.3.1.0",
 	"Author": "Linus Gubenis",
 	"URL": "https://github.com/linus-amg/streamdeck-claude-code",
 	"Description": "Control a live Claude Code session from your Stream Deck: switch model (Opus, Sonnet, Haiku), set reasoning effort, toggle fast mode, run skills, and trigger native voice dictation — typed straight into your terminal. Unofficial; not affiliated with Anthropic.",
 	"Category": "Controls for Claude Code",
 	"CategoryIcon": "imgs/plugin/category",
 	"Icon": "imgs/plugin/marketplace",
-	"SDKVersion": 2,
+	"SDKVersion": 3,
 	"CodePath": "bin/plugin.js",
 	"Nodejs": {
 		"Version": "20"
