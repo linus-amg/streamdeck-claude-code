@@ -46,8 +46,9 @@ report it back), so the model/effort keys light up to show what was last sent.
 - Claude Code **v2.1.205+**
 - Elgato Stream Deck app **7.1+**
 - **Accessibility permission** for the Stream Deck app (see below)
-- Node.js **20+** for the dev/build toolchain (the plugin runs on Stream Deck's
-  bundled Node)
+- [**Bun**](https://bun.com) for the dev/build toolchain. The plugin itself runs
+  on Stream Deck's own bundled Node.js (Elgato's runtime, set via the manifest);
+  Bun is only used to install, bundle, and script.
 
 ### Grant Accessibility permission
 
@@ -68,20 +69,19 @@ permission (above) and add the actions to your keys.
 ## Build from source
 
 ```bash
-npm install
-npm run build                  # bundles src -> com.linus.claude-code-control.sdPlugin/bin/plugin.js
+bun install
+bun run build                  # bun build src -> com.linus.claude-code-control.sdPlugin/bin/plugin.js
 
-npm install -g @elgato/cli
-streamdeck link com.linus.claude-code-control.sdPlugin
-streamdeck restart com.linus.claude-code-control
+bunx streamdeck link com.linus.claude-code-control.sdPlugin
+bunx streamdeck restart com.linus.claude-code-control
 
-# iterate with hot reload:
-npm run watch
+# iterate with hot reload (rebuild + restart on change):
+bun run watch
 ```
 
 > A newly **linked** plugin only appears in the Stream Deck app's action list
 > after the app rescans it — quit and reopen Stream Deck once. Afterwards,
-> `npm run watch` hot-reloads code changes without an app restart (manifest
+> `bun run watch` hot-reloads code changes without an app restart (manifest
 > changes still need an app restart).
 
 Then in the Stream Deck app, open the **Keys** tab, find the **Claude Code
@@ -90,8 +90,8 @@ Control** category, and drag actions onto keys.
 Package a distributable locally:
 
 ```bash
-npm run validate
-npm run package   # -> com.linus.claude-code-control.streamDeckPlugin
+bun run validate
+bun run package   # -> com.linus.claude-code-control.streamDeckPlugin
 ```
 
 ## Releasing

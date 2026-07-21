@@ -16,21 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
+      - uses: oven-sh/setup-bun@v2
+        # Bun version comes from package.json "packageManager".
 
-      - run: npm ci
+      - run: bun install --frozen-lockfile
 
       - name: Type-check
-        run: npm run typecheck
+        run: bun run typecheck
 
       - name: Build
-        run: npm run build
+        run: bun run build
 
       - name: Package .streamDeckPlugin
-        run: npm run package
+        run: bun run package
 
       - name: Create GitHub Release
         env:
