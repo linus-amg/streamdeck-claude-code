@@ -1,6 +1,6 @@
 {
 	"name": "streamdeck-claude-code",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "Stream Deck plugin to steer a live Claude Code session — model, effort, fast mode, and skills — by injecting slash commands into a tmux-hosted TUI.",
 	"type": "module",
 	"private": true,
