@@ -157,3 +157,10 @@ login (not an API key).
 - **Typed into the wrong window** — set **Activate app** to your terminal
   (`Ghostty`), or make sure the terminal is focused before pressing.
 - **Command typed but not submitted** — increase the submit delay.
+
+## License
+
+[MIT](LICENSE) © Linus Gubenis.
+
+Unofficial — not affiliated with or endorsed by Anthropic. "Claude" and "Claude
+Code" are trademarks of Anthropic.

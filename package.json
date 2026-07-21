@@ -1,9 +1,10 @@
 {
 	"name": "streamdeck-claude-code",
 	"version": "0.3.2",
-	"description": "Stream Deck plugin to steer a live Claude Code session — model, effort, fast mode, and skills — by injecting slash commands into a tmux-hosted TUI.",
+	"description": "Stream Deck plugin to control a live Claude Code session — model, effort, fast mode, skills, and native voice — by typing slash commands into the focused terminal.",
 	"type": "module",
 	"private": true,
+	"license": "MIT",
 	"scripts": {
 		"build": "rollup -c",
 		"watch": "rollup -c -w --watch.onEnd=\"streamdeck restart com.linus.claude-code-control\"",
